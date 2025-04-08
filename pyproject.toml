@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "pj-to-speedup"
+version = "0.1.0"
+description = ""
+authors = ["T-akkiii <akashi0718@g.ecc.u-tokyo.ac.jp>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyfreefem = "^1.1.2"
+torch = "2.1.0"
+torchsummary = "^1.5.1"
+numpy = "1.24.3"
+ruff = "^0.8.2"
+pyyaml = "^6.0.2"
+torchviz = "^0.0.3"
+schedulefree = "^1.4"
+
+[[tool.poetry.source]]
+name = "torch"
+url = "https://download.pytorch.org/whl/cu121"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

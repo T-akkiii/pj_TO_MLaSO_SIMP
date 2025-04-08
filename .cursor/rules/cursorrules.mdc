@@ -1,0 +1,59 @@
+---
+description: This rule is helpful for coding topology optimization 
+globs: 
+alwaysApply: false
+---
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
+rules:
+  - description: "数値計算の精度と再現性の保証"
+    conditions:
+      - before_coding: "数値パラメータの単位と精度を明記する"
+      - on_implementation: "乱数を使用する場合はシードを設定する"
+      - before_commit: "計算結果の再現性を確認する"
+    enforcement: "再現性が確保できないコードは却下"
+
+  - description: "FreeFEM連携の品質管理"
+    conditions:
+      - before_coding: "FreeFEMスクリプトの入出力仕様を文書化"
+      - on_implementation: "メッシュ生成パラメータを明示的に記録"
+      - before_commit: "PyFreeFEMのインターフェース部分のエラーハンドリングを確認"
+    enforcement: "FreeFEM連携部分の不備があるコードを拒否"
+
+  - description: "最適化アルゴリズムの実装管理"
+    conditions:
+      - before_coding: "最適化問題の定式化を数式で記述"
+      - on_implementation: "収束判定条件を明確に定義"
+      - before_commit: "目的関数と制約条件の計算が正しいことを検証"
+    enforcement: "数学的な検証が不十分な実装を却下"
+
+  - description: "研究データの管理"
+    conditions:
+      - on_implementation: "計算結果の保存形式を統一（.npz, .vtu等）"
+      - before_commit: "実験パラメータと結果の対応関係を記録"
+      - on_results: "可視化スクリプトを提供"
+    enforcement: "データ管理が不適切なコードを拒否"
+
+  - description: "ドキュメンテーション要件"
+    conditions:
+      - before_coding: "使用する物理量の定義と単位系を明記"
+      - on_implementation: "数値解析手法の理論的背景を説明"
+      - before_commit: "関数やクラスに数式を含むドキュメントを付与"
+    enforcement: "理論的説明が不足するコードを却下"
+
+  - description: "性能とリソース管理"
+    conditions:
+      - before_coding: "大規模計算の必要メモリ量を見積もる"
+      - on_implementation: "計算時間を計測するコードを含める"
+      - before_commit: "メモリリークがないことを確認"
+    enforcement: "リソース管理が不適切なコードを拒否"
+
+  - description: "検証用テストケース"
+    conditions:
+      - before_coding: "ベンチマーク問題の定義"
+      - on_implementation: "解析解のある単純な問題での検証"
+      - before_commit: "既存研究との比較検証"
+    enforcement: "検証が不十分な実装を却下"

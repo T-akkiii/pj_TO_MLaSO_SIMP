@@ -1,0 +1,22 @@
+MLaSO_d:
+  beta_min: 0.6
+  k: 0
+  ks: 5
+  kr: 0
+  kp: 0
+  max_loop: 100
+  Ne: 5883
+  r_min: 0.05
+
+on_the_job_training:
+  R_min: 0.0005
+  E_min: 0.1
+  gamma_0: 0.1
+  delta_gamma: 0.1
+  max_epoch: 500
+  warmup_epoch: 0
+  constant_epoch: 100
+  lr: 0.01
+  sub_lr: 0.001
+  constant_lr: 0.00000001
+  tau_t: 0.00002
